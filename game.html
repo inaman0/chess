@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="./lib/chessboard/css/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p id="player_info"></p>
+  <p id="player_name"></p>
+
+  <h1 class="main-heading">Multiplayer Chess</h1>
+
+  <!-- WAITING PAGE -->
+  <p id="waiting-text">Waiting for opponent to join...</p>
+
+  <!-- GAME PAGE -->
+  <div id="main-element" class="display-none">
+    <div id="game-container">
+      <div id="left-side">
+        <div id="myBoard"></div>
+        <p id="timerdisplay">00:00</p>
+        <div id="buttonparent"></div>
+      </div>
+
+      <div id="chat-container">
+        <div id="move-history-container">
+          <h3>Move History</h3>
+          <div id="pgn"></div>
+        </div>        
+
+        <div id="chat-box"></div>
+        <div class="chat-input-container">
+          <input id="chat-input" type="text" placeholder="Type a message..."/>
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promotion Modal -->
+  <div id="promotion-modal">
+    <p>Promote to:</p>
+    <button onclick="promote('q')">Queen</button>
+    <button onclick="promote('r')">Rook</button>
+    <button onclick="promote('b')">Bishop</button>
+    <button onclick="promote('n')">Knight</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./lib/chessboard/js/chessboard-1.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.12.0/chess.min.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

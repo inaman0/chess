@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chess Setup</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Start Your Game</h2>
+    <label>
+      Name:
+      <input type="text" id="playerName" placeholder="Enter your name" required />
+    </label>
+    <label>
+      Preferred Color:
+      <select id="color">
+        <option value="random">Random</option>
+        <option value="w">White</option>
+        <option value="b">Black</option>
+      </select>
+    </label>
+    <label>
+      Time:
+      <select id="time">
+        <option value="10">10 Min</option>
+        <option value="15">15 Min</option>
+        <option value="20">20 Min</option>
+      </select>
+    </label>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+  <script>
+    function startGame() {
+      const name = document.getElementById("playerName").value.trim();
+      const color = document.getElementById("color").value;
+      const time = document.getElementById("time").value;
+
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      // Store info in localStorage
+      localStorage.setItem("playerName", name);
+      localStorage.setItem("preferredColor", color);
+      localStorage.setItem("preferredTime", time);
+
+      // Redirect to game page
+      window.location.href = "game.html";
+    }
+  </script>
+</body>
+
+</html>
