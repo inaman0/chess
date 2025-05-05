@@ -5,7 +5,7 @@ const PORT = 3000;
 const httpServer = createServer();
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://127.0.0.1:5500",
+        origin: "*",
         methods: ["GET", "POST"],
     },
 });
@@ -118,6 +118,6 @@ io.on("connection", (socket) => {
     });
 });
 
-httpServer.listen(PORT, () => {
+httpServer.listen(PORT, '0.0.0.0',() => {
     console.log(`Server is running on port ${PORT}`);
 });

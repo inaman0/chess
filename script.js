@@ -8,7 +8,7 @@ let promotionMove = null;
 let displayedMovesCount = 0;
 var $pgn = $('#pgn')
 let formatted = "";
-const socket = io("http://localhost:3000");
+const socket = io("http://10.196.38.53:3000");
 
 document.addEventListener('DOMContentLoaded', function () {
     const name = localStorage.getItem("playerName");
